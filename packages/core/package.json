@@ -6,18 +6,19 @@
   "files": ["dist"],
   "sideEffects": false,
   "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
   },
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch",
+    "watch": "tsup --watch",
+    "typecheck": "tsc -p . --noEmit",
     "prepack": "pnpm run build",
     "gen:esign": "openapi-typescript https://raw.githubusercontent.com/docusign/OpenAPI-Specifications/master/esignature.rest.swagger-v2.1.json -o src/generated/esignature.d.ts"
   },
@@ -27,11 +28,11 @@
     "dts": true,
     "sourcemap": true,
     "clean": true,
-    "treeshake": true,
-    "minify": false,
     "target": "es2022",
     "outDir": "dist",
-    "platform": "neutral"
+    "platform": "neutral",
+    "treeshake": true,
+    "minify": false
   },
   "devDependencies": {
     "openapi-typescript": "^7.4.2",

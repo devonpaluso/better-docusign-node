@@ -23,3 +23,15 @@ export function openInIframe(container: HTMLElement, url: string) {
     container.appendChild(iframe);
     return iframe;
 }
+
+export function openInNewTab(url: string) {
+    window.open(url, "_blank", "noopener,noreferrer");
+}
+
+export function parseReturnUrl(u: string) {
+    const url = new URL(u, window.location.origin);
+    const event = url.searchParams.get("event") || url.searchParams.get("eventCode") || "";
+    const params: Record<string,string> = {};
+    url.searchParams.forEach((v, k) => (params[k] = v));
+    return { event, ...params };
+}

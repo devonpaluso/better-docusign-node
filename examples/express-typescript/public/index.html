@@ -1,0 +1,44 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>Embedded Signing Demo</title>
+<style>
+    html, body { height: 100%; margin: 0; font-family: system-ui, sans-serif; }
+    #box { height: 90vh; }
+    iframe { width: 100%; height: 100%; border: 0; }
+</style>
+
+<button id="go">Start signing</button>
+<div id="box"></div>
+
+<script type="module">
+    async function fileToBase64(url) {
+        const buf = await fetch(url).then(r => r.arrayBuffer());
+        let binary = ""; const bytes = new Uint8Array(buf);
+        for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+        return btoa(binary);
+    }
+
+    document.getElementById("go").onclick = async () => {
+        try {
+            const documentBase64 = await fileToBase64("/sample.pdf");  // put a real PDF next to this file
+            const res = await fetch("/api/docusign/embedded-url", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    emailSubject: "Please sign",
+                    documentBase64,
+                    documentName: "sample.pdf",
+                    signer: { name: "Jane Signer", email: "jane@example.com", clientUserId: "user-123" }
+                })
+            });
+            if (!res.ok) throw new Error(await res.text());
+            const { url } = await res.json();
+            const iframe = document.createElement("iframe");
+            iframe.src = url;
+            document.getElementById("box").appendChild(iframe);
+        } catch (err) {
+            alert("Failed: " + (err?.message || err));
+            console.error(err);
+        }
+    };
+</script>
