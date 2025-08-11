@@ -1,0 +1,28 @@
+{
+  "name": "@better-docusign/web",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "lib/main.ts",
+  "module": "lib/main.ts",
+  "types": "lib/main.ts",
+  "publishConfig": {
+    "access": "restricted",
+    "main": "./dist/main.umd.cjs",
+    "module": "./dist/main.es.js",
+    "types": "./dist/main.d.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && vite build"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.11",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vite-plugin-dts": "^3.9.1"
+  },
+  "access": "restricted"
+}

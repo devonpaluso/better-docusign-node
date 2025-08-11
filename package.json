@@ -1,0 +1,17 @@
+{
+  "name": "root",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "echo todo"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "sandbox/*"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
