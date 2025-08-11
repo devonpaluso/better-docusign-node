@@ -6,18 +6,19 @@
   "files": ["dist"],
   "sideEffects": false,
   "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
   },
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch",
+    "watch": "tsup --watch",
+    "typecheck": "tsc -p . --noEmit",
     "prepack": "pnpm run build"
   },
   "dependencies": {
@@ -30,14 +31,15 @@
     "dts": true,
     "sourcemap": true,
     "clean": true,
-    "treeshake": true,
-    "minify": false,
     "target": "node18",
     "outDir": "dist",
     "platform": "node",
-    "external": ["@better-docusign/core", "jose"]
+    "external": ["@better-docusign/core", "jose"],
+    "treeshake": true,
+    "minify": false
   },
   "devDependencies": {
+    "@types/node": "^20.14.11",
     "tsup": "^8.0.1",
     "typescript": "^5.5.4"
   },

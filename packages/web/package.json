@@ -1,23 +1,24 @@
 {
-  "name": "@better-docusign/client",
+  "name": "@better-docusign/web",
   "version": "0.1.0",
   "description": "Browser helpers to call your backend and open embedded signing",
   "type": "module",
   "files": ["dist"],
   "sideEffects": false,
   "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
+      "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
   },
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch",
+    "watch": "tsup --watch",
+    "typecheck": "tsc -p . --noEmit",
     "prepack": "pnpm run build"
   },
   "dependencies": {
@@ -29,12 +30,12 @@
     "dts": true,
     "sourcemap": true,
     "clean": true,
-    "treeshake": true,
-    "minify": false,
     "target": "es2022",
     "outDir": "dist",
     "platform": "browser",
-    "external": ["@better-docusign/core"]
+    "external": ["@better-docusign/core"],
+    "treeshake": true,
+    "minify": false
   },
   "devDependencies": {
     "tsup": "^8.0.1",
