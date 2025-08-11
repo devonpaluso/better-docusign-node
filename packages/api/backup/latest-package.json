@@ -1,0 +1,47 @@
+{
+  "name": "@echobridge/api",
+  "private": false,
+  "version": "1.1.18",
+  "description": "",
+  "type": "module",
+  "main": "./src/main.ts",
+  "module": "./src/main.ts",
+  "types": "./src/main.ts",
+  "publishConfig": {
+    "access": "restricted",
+    "main": "./dist/main.cjs",
+    "module": "./dist/main.mjs",
+    "types": "./dist/main.d.cts",
+    "exports": {
+      "require": {
+        "types": "./dist/main.d.cts",
+        "default": "./dist/main.cjs"
+      },
+      "import": {
+        "types": "./dist/main.d.mts",
+        "default": "./dist/main.mjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "pkgroll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "pkgroll": "^2.1.1",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "@echobridge/core": "1.1.18",
+    "socket.io": "^4.7.5"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.8",
+    "utf-8-validate": "^6.0.3"
+  }
+}
