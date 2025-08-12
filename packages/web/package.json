@@ -1,6 +1,6 @@
 {
   "name": "@better-docusign/web",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Browser helpers to call your backend and open embedded signing",
   "type": "module",
   "files": [
@@ -19,6 +19,15 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "homepage": "https://github.com/owner/better-docusign-node#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owner/better-docusign-node.git",
+    "directory": "packages/web"
+  },
+  "bugs": {
+    "url": "https://github.com/owner/better-docusign-node/issues"
   },
   "scripts": {
     "build": "tsup",

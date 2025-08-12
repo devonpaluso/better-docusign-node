@@ -1,6 +1,6 @@
 {
   "name": "@better-docusign/core",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Core types and thin-path helpers for DocuSign",
   "type": "module",
   "files": [
@@ -19,6 +19,15 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "homepage": "https://github.com/owner/better-docusign-node#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/owner/better-docusign-node.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/owner/better-docusign-node/issues"
   },
   "scripts": {
     "build": "tsup",
