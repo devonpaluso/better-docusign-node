@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import { createEmbeddedUrlViaBackend, parseReturnUrl } from "@better-docusign/web";
+import { createEmbeddedUrl, parseReturnUrl } from "@better-docusign/web";
 
 function bytesToBase64(buf: ArrayBuffer) {
     let binary = "";
@@ -42,10 +42,12 @@ export default function Embedded() {
                 : await fetchSampleToBase64("/sample.pdf"); // optional fallback if you add public/sample.pdf
 
             setStatus("Requesting embedded URL…");
-            const { url } = await createEmbeddedUrlViaBackend("/api/docusign/embedded-url", {
+            const { url } = await createEmbeddedUrl("/api/docusign/embedded-url", {
                 emailSubject: "Please sign",
-                documentBase64,
-                documentName: file?.name || "sample.pdf",
+                document: {
+                    base64: documentBase64,
+                    name: file?.name || "sample.pdf",
+                },
                 signer: { name, email, clientUserId: cuid },
                 returnUrl: `${window.location.origin}/docusign/return?envelopeId={envelopeId}`
             });

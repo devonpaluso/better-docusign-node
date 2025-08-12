@@ -1,9 +1,11 @@
 {
   "name": "@better-docusign/api",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Server-side: JWT auth, userinfo discovery, envelope + recipient view",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "sideEffects": false,
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -14,6 +16,9 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "tsup",
@@ -26,15 +31,23 @@
     "jose": "^5.9.3"
   },
   "tsup": {
-    "entry": ["src/index.ts"],
-    "format": ["esm", "cjs"],
+    "entry": [
+      "src/index.ts"
+    ],
+    "format": [
+      "esm",
+      "cjs"
+    ],
     "dts": true,
     "sourcemap": true,
     "clean": true,
     "target": "node18",
     "outDir": "dist",
     "platform": "node",
-    "external": ["@better-docusign/core", "jose"],
+    "external": [
+      "@better-docusign/core",
+      "jose"
+    ],
     "treeshake": true,
     "minify": false
   },
@@ -43,5 +56,7 @@
     "tsup": "^8.0.1",
     "typescript": "^5.5.4"
   },
-  "engines": { "node": ">=18.17" }
+  "engines": {
+    "node": ">=18.17"
+  }
 }

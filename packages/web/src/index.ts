@@ -1,6 +1,6 @@
 import type { EmbeddedSigningInput, EmbeddedSigningResult } from "@better-docusign/core";
 
-export async function createEmbeddedUrlViaBackend(
+export async function createEmbeddedUrl(
     endpoint: string,
     input: EmbeddedSigningInput
 ): Promise<EmbeddedSigningResult> {
