@@ -2,7 +2,9 @@
   "name": "better-docusign-monorepo",
   "private": true,
   "packageManager": "pnpm@10.14.0",
-  "engines": { "node": ">=18.17" },
+  "engines": {
+    "node": ">=18.17"
+  },
   "scripts": {
     "build": "pnpm -r --filter @better-docusign/* run build",
     "dev": "pnpm -r --parallel --stream --filter @better-docusign/* run watch",
@@ -10,5 +12,6 @@
     "gen:esign": "pnpm -r --filter @better-docusign/core run gen:esign",
     "clean": "git clean -xfd -e .env",
     "publish-packages": "pnpm -r --filter @better-docusign/* publish --access public"
-  }
+  },
+  "version": "0.0.1"
 }
