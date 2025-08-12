@@ -1,6 +1,6 @@
 {
   "name": "@better-docusign/web",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Browser helpers to call your backend and open embedded signing",
   "type": "module",
   "files": [
