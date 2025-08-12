@@ -12,6 +12,5 @@
     "gen:esign": "pnpm -r --filter @better-docusign/core run gen:esign",
     "clean": "git clean -xfd -e .env",
     "publish-packages": "pnpm -r --filter @better-docusign/* publish --access public"
-  },
-  "version": "0.0.1"
+  }
 }
