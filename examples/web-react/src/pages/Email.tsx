@@ -56,7 +56,7 @@ export default function EmailPage() {
                 ? await fileToBase64(file)
                 : await fetchSampleToBase64("/sample.pdf");
 
-            setStatus("Sending via DocuSign email…");
+            setStatus("Sending via Docusign email…");
             const r = await fetch("/api/docusign/send-email", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

@@ -1,15 +1,15 @@
-# Better DocuSign Node.js SDK
+# Better Docusign Node.js SDK
 
 [![npm version](https://img.shields.io/npm/v/@better-docusign/api?style=flat-square)](https://www.npmjs.com/package/@better-docusign/api)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5+-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/license-MIT-red?style=flat-square)](LICENSE)
 
-> A modern, lightweight, and actually usable DocuSign SDK for Node.js and the browser. Built because the official SDK
+> A modern, lightweight, and actually usable Docusign SDK for Node.js and the browser. Built because the official SDK
 > is... *really, really, really* terrible.
 
 ## Why This Exists
 
-The official DocuSign Node.js SDK is a nightmare:
+The official Docusign Node.js SDK is a nightmare:
 
 - **Outdated and confusing APIs** with poor TypeScript support
 - **Poor documentation** and confusing examples
@@ -26,7 +26,7 @@ This SDK provides a clean, modern alternative that actually makes sense.
 ✅ **Simple API** - Intuitive methods that do what you expect  
 ✅ **JWT Authentication** - Built-in support with proper error handling  
 ✅ **Both Node.js and Browser** - Unified experience across platforms  
-✅ **Focused DocuSign API coverage** - Including Web Forms, embedded signing, etc.
+✅ **Focused Docusign API coverage** - Including Web Forms, embedded signing, etc.
 
 ## Quick Start
 
@@ -121,7 +121,7 @@ Both examples include complete setup instructions and `.env` templates.
 
 - **Node.js** >= 18.17
 - **TypeScript** 5.5+ (recommended)
-- **DocuSign Developer Account** with JWT authentication
+- **Docusign Developer Account** with JWT authentication
 
 ## Architecture
 
@@ -133,7 +133,7 @@ Platform-neutral types and utilities. The foundation that other packages build o
 
 ### 🚀 `@better-docusign/api`
 
-Server-side Node.js package for JWT authentication, envelope creation, and DocuSign API calls.
+Server-side Node.js package for JWT authentication, envelope creation, and Docusign API calls.
 
 ### 🌐 `@better-docusign/web`
 
@@ -145,8 +145,8 @@ MIT
 
 ## Contributing
 
-Issues and PRs welcome! This is a community-driven effort to make DocuSign integration sane.
+Issues and PRs welcome! This is a community-driven effort to make Docusign integration sane.
 
 ---
 
-*Finally, a DocuSign SDK that doesn't make you want to throw your computer out the window.* 🚀
+*Finally, a Docusign SDK that doesn't make you want to throw your computer out the window.* 🚀

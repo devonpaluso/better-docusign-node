@@ -4,13 +4,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Structure
 
-This is a pnpm monorepo for DocuSign integration libraries with three main packages:
+This is a pnpm monorepo for Docusign integration libraries with three main packages:
 
 - **@better-docusign/core**: Core types and thin helpers (platform-neutral)
 - **@better-docusign/api**: Server-side JWT auth, envelope creation, and recipient views (Node.js)
 - **@better-docusign/web**: Browser helpers for embedded signing and URL parsing
 
-The project follows a modular architecture where `core` provides shared types, `api` handles server-side DocuSign operations, and `web` provides client-side utilities.
+The project follows a modular architecture where `core` provides shared types, `api` handles server-side Docusign operations, and `web` provides client-side utilities.
 
 ## Common Commands
 
@@ -64,11 +64,11 @@ cd examples/web-react && pnpm build
 - All packages are workspace dependencies using `workspace:^`
 
 ### Key Modules in @better-docusign/api
-- `auth.ts`: JWT authentication provider for DocuSign OAuth
-- `client.ts`: Main DocuSign client with account/base URL discovery
+- `auth.ts`: JWT authentication provider for Docusign OAuth
+- `client.ts`: Main Docusign client with account/base URL discovery
 - `flows.ts`: High-level signing flows (embedded, email)
 - `webforms.ts`: Web Forms API integration
-- `remote.ts`: Direct DocuSign API calls
+- `remote.ts`: Direct Docusign API calls
 
 ### Build Configuration
 - Uses `tsup` for building with both ESM and CJS outputs
@@ -79,10 +79,10 @@ cd examples/web-react && pnpm build
 ### Environment Requirements
 - Node.js >= 18.17
 - Uses pnpm@10.14.0 as package manager
-- All examples require DocuSign developer account with JWT authentication setup
+- All examples require Docusign developer account with JWT authentication setup
 
 ### Authentication Flow
-The API package uses JWT authentication with DocuSign. Examples expect these environment variables:
+The API package uses JWT authentication with Docusign. Examples expect these environment variables:
 - `DOCUSIGN_INTEGRATION_KEY`: Your integration key (GUID)
 - `DOCUSIGN_USER_ID`: API username (GUID)
 - `DOCUSIGN_PRIVATE_KEY_PATH`: Path to private key file

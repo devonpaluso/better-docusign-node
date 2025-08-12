@@ -68,7 +68,7 @@ app.post("/api/docusign/webforms/instance", async (req: Request, res: Response) 
     }
 });
 
-/** Email (remote) signing — DocuSign emails the signer. */
+/** Email (remote) signing — Docusign emails the signer. */
 app.post("/api/docusign/send-email", async (req: Request, res: Response) => {
     try {
         const { documentBase64, documentName, signer } = req.body;
@@ -101,9 +101,9 @@ app.get("/", (_: Request, res: Response) => {
     res.type("html").send(`
 <!doctype html>
 <html>
-<head><meta charset="utf-8"><title>Better DocuSign Demo</title></head>
+<head><meta charset="utf-8"><title>Better Docusign Demo</title></head>
 <body style="font-family:sans-serif; margin:40px;">
-  <h1>Better DocuSign</h1>
+  <h1>Better Docusign</h1>
   <ul>
     <li>POST base64 PDF to <code>/api/docusign/embedded-url</code> with a <code>returnUrl</code>.</li>
     <li>POST to <code>/api/docusign/webforms/instance</code> with a <code>formId</code> for hosted Web Form link.</li>

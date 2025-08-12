@@ -1,5 +1,5 @@
 // You can replace these with OpenAPI-derived types later.
-// For now we use a minimal structural subset that matches DocuSign.
+// For now we use a minimal structural subset that matches Docusign.
 export interface EnvelopeDefinition {
     emailSubject?: string;
     documents?: Array<{
@@ -39,7 +39,7 @@ export interface SignHere {
 }
 
 export interface RecipientViewRequest {
-    userName?: string;          // NOTE: DocuSign expects userName (camel case)
+    userName?: string;          // NOTE: Docusign expects userName (camel case)
     email?: string;
     clientUserId?: string;
     returnUrl?: string;

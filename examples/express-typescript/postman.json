@@ -1,6 +1,6 @@
 {
   "info": {
-    "name": "Better DocuSign — Create Embedded URL",
+    "name": "Better Docusign — Create Embedded URL",
     "_postman_id": "6b8c9c56-0c7e-4f84-ae1b-11f3d4a5f000",
     "description": "Calls your Express endpoint to create an embedded signing URL.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"

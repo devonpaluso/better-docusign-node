@@ -47,7 +47,7 @@ export default function Hosted() {
                 <span>{status}</span>
             </div>
             <p style={{ color: "#666" }}>
-                Requires a published Web Form in your DocuSign account and JWT scopes:
+                Requires a published Web Form in your Docusign account and JWT scopes:
                 <code> signature impersonation webforms_read webforms_instance_read webforms_instance_write</code>.
             </p>
         </div>

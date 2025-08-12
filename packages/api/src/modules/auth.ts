@@ -4,7 +4,7 @@ import { createPrivateKey } from "node:crypto";
 import { importPKCS8, SignJWT } from "jose";
 
 type BaseCfg = {
-    /** Your DocuSign Integration Key (GUID). Prefer this name; `clientId` still works as an alias. */
+    /** Your Docusign Integration Key (GUID). Prefer this name; `clientId` still works as an alias. */
     integrationKey?: string;
     clientId?: string;                 // legacy alias
     /** API Username (GUID) of the impersonated user */
@@ -144,7 +144,7 @@ export class JwtAuthProvider {
                     // eslint-disable-next-line no-console
                     console.error(
                         [
-                            "DocuSign JWT consent required.",
+                            "Docusign JWT consent required.",
                             `  Environment: ${this.cfg.authBaseUrl}`,
                             `  Integration Key: ${this.cfg.integrationKey}`,
                             `  Scopes: ${this.cfg.scopes.join(" ")}`,
@@ -154,7 +154,7 @@ export class JwtAuthProvider {
                             "  After granting, re-run your request."
                         ].join("\n")
                     );
-                    throw new ConsentRequiredError("DocuSign consent required", urls);
+                    throw new ConsentRequiredError("Docusign consent required", urls);
                 }
             } catch {
                 // ignore JSON parse error; fall through to generic throw

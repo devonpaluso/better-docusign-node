@@ -3,7 +3,7 @@ import type {
     SignHere, Tabs
 } from "@better-docusign/core";
 
-export interface ResolvedAccount {
+export interface AccountDetails {
     accountId: string;
     baseUriRestApi: string;
 }
@@ -15,7 +15,7 @@ export interface AuthLike {
 
 export class DocusignClient {
     private auth: AuthLike;
-    private resolved?: ResolvedAccount;
+    private accountDetails?: AccountDetails;
 
     constructor(auth: AuthLike) {
         this.auth = auth;
@@ -43,8 +43,8 @@ export class DocusignClient {
     }
 
     /** Resolve default account + base REST URI via /oauth/userinfo. */
-    async resolve(): Promise<ResolvedAccount> {
-        if (this.resolved) return this.resolved;
+    async account(): Promise<AccountDetails> {
+        if (this.accountDetails) return this.accountDetails;
         if (!this.auth.authBaseUrl) throw new Error("auth.authBaseUrl is required");
 
         const { accessToken } = await this.auth.getAccessToken();
@@ -56,18 +56,18 @@ export class DocusignClient {
             accounts: Array<{ account_id: string; is_default: boolean; base_uri: string }>;
         };
         const acct = json.accounts.find(a => a.is_default) ?? json.accounts[0];
-        if (!acct) throw new Error("No DocuSign accounts on userinfo response");
+        if (!acct) throw new Error("No Docusign accounts on userinfo response");
 
-        this.resolved = {
+        this.accountDetails = {
             accountId: acct.account_id,
             baseUriRestApi: `${acct.base_uri}/restapi`,
         };
-        return this.resolved;
+        return this.accountDetails;
     }
 
     private async api<T>(path: string, init: RequestInit): Promise<T> {
         const { accessToken } = await this.auth.getAccessToken();
-        const resolved = await this.resolve();
+        const resolved = await this.account();
         const resp = await fetch(`${resolved.baseUriRestApi}${path}`, {
             ...init,
             headers: {
@@ -84,7 +84,7 @@ export class DocusignClient {
     }
 
     async createEnvelope(def: EnvelopeDefinition) {
-        const { accountId } = await this.resolve();
+        const { accountId } = await this.account();
         return this.api<{ envelopeId: string }>(
             `/v2.1/accounts/${accountId}/envelopes`,
             { method: "POST", body: JSON.stringify(def) }
@@ -92,7 +92,7 @@ export class DocusignClient {
     }
 
     async createRecipientView(envelopeId: string, body: RecipientViewRequest) {
-        const { accountId } = await this.resolve();
+        const { accountId } = await this.account();
         return this.api<{ url: string }>(
             `/v2.1/accounts/${accountId}/envelopes/${envelopeId}/views/recipient`,
             { method: "POST", body: JSON.stringify(body) }
@@ -101,7 +101,7 @@ export class DocusignClient {
 
     /** Get envelope metadata (status, updated time, etc.) */
     async getEnvelope(envelopeId: string) {
-        const { accountId } = await this.resolve();
+        const { accountId } = await this.account();
         return this.api<{
             envelopeId: string;
             status: "created" | "sent" | "delivered" | "completed" | "declined" | "voided" | string;
@@ -178,7 +178,7 @@ export class DocusignClient {
         formUrl: string;
         instanceToken: string;
     }> {
-        const { accountId } = await this.resolve();
+        const { accountId } = await this.account();
         const base = this.webFormsBase();
 
         const r = await this.authFetch(
