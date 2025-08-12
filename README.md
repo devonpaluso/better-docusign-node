@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@better-docusign/api?style=flat-square)](https://www.npmjs.com/package/@better-docusign/api)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5+-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![License](https://img.shields.io/npm/l/@better-docusign/api?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-red?style=flat-square)](LICENSE)
 
 > A modern, lightweight, and actually usable DocuSign SDK for Node.js and the browser. Built because the official SDK
 > is... *really, really, really* terrible.
