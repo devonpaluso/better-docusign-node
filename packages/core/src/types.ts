@@ -52,12 +52,13 @@ export interface RecipientViewRequest {
 // Shared DTOs for our thin-path helpers
 export interface EmbeddedSigningInput {
     emailSubject: string;
-    documentBase64: string;
-    documentName: string;
-    fileExtension?: string;
+    document: {
+        base64: string;
+        name: string;
+        fileExtension?: string;
+    };
     signer: { name: string; email: string; clientUserId: string };
-    // was: returnUrl: string;
-    returnUrl?: string;
+    returnUrl: string;  // Required - supports {envelopeId} placeholder
     pingUrl?: string;
     pingFrequency?: string;
 }
